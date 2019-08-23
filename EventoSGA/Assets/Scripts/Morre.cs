@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
+using UnityEngine.SceneManagement;
 
 public class Morre : MonoBehaviour
 {
@@ -8,8 +10,10 @@ public class Morre : MonoBehaviour
     {
         if (other.gameObject)
         {
-            Destroy(other.gameObject);
+           SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
+           
 
     }
+   
 }

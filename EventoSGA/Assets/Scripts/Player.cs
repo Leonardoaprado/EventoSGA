@@ -8,6 +8,22 @@ public class Player : MonoBehaviour
 
     public float Pulo = 0;
 
+    //public GameObject Tiro;
+
+    public static float x, y;
+
+    //variaveis do tiro teste
+    public Transform bulletSpaw;
+    public GameObject bulletObject;
+    public float FireRate;
+    public float NextFire;
+
+
+ 
+
+
+
+
     SpriteRenderer spritePlayer;
     Animator animacao;
 
@@ -21,6 +37,9 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        x = transform.position.x;
+        y = transform.position.y;
+
         if(Input.GetAxisRaw("Horizontal") > 0 || Input.GetAxisRaw("Horizontal") < 0)
         {
             animacao.SetBool("Andar", true);
@@ -64,6 +83,24 @@ public class Player : MonoBehaviour
             transform.Translate(Vector3.up * Pulo);
             
         }
+
+        /* if (Input.GetAxisRaw("Fire1") > 0)
+         {
+             Instantiate(this.Tiro, new Vector2(Player.x + 0.001f, Player.y - 0.0005f), Quaternion.identity);
+         }*/
+
+        if (Input.GetAxisRaw("Fire1") > 0 && Time.time > NextFire)
+        {
+            animacao.SetTrigger("Fire");
+            NextFire = Time.time + FireRate;
+            GameObject cloneBullet = Instantiate(bulletObject, bulletSpaw.position, bulletSpaw.rotation);
+            if(spritePlayer.flipX)
+            {
+                cloneBullet.transform.eulerAngles = new Vector3 (0, 0, 180);
+            }
+        }
+
+
 
     }
 }

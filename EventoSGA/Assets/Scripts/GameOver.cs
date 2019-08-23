@@ -4,18 +4,15 @@ using UnityEngine;
 using UnityEditor;
 using UnityEngine.SceneManagement;
 
-
-public class Menu : MonoBehaviour
+public class GameOver : MonoBehaviour
 {
-    public void PlayGame()
+    public void Restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1); 
 
     }
-
     public void QuitGame()
     {
         Application.Quit();
     }
-    
 }
