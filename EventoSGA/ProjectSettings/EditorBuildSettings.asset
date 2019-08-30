@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GamOver.unity
     guid: fb3a148365dba074eaecd88554782e6f
+  - enabled: 1
+    path: Assets/Scenes/Ganhou.unity
+    guid: 378a89e5ab886cf4e92243c88c09e0a2
   m_configObjects: {}
